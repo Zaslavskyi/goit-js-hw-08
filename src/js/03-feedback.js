@@ -2,14 +2,7 @@ import throttle from "lodash.throttle";
 
 const form = document.querySelector('.feedback-form');
 const STORAGE_KEY = 'feedback-form-state';
-
-// const inputEl = document.querySelector('[name ="email"]');
-
-// const textareaEl = document.querySelector('[name ="message"]');
-
-// inputEl.setAttribute('id', 'email');
-// textareaEl.setAttribute('id', 'message');
-
+let userStorage = {};
 populateForm();
 
 
@@ -19,20 +12,10 @@ form.addEventListener('input', throttle(e => {
 }, 500)
 );
 
-let userStorage = {};
+
 
 function onFormInput(e) {
-    e.preventDefault();
-    
-    const name = e.target;
-    const value = e.target.value;
-    // const attributeName = name.getAttribute("id");
-    // if (attributeName === 'email') {
-    //      userStorage.email = value;
-    // } else {
-    //     userStorage.message = value;
-    // }
-    userStorage[e.target.name] = e.target.value;
+
     const userData = JSON.stringify(userStorage);
     localStorage.setItem(STORAGE_KEY, userData); 
    
@@ -61,14 +44,6 @@ function populateForm() {
                     userStorage[name] = value;
                 })
             }
-    //     inputEl.value = userStorage.email;
-        
-    //     textareaEl.value = userStorage.message;
-    //    if(userStorage.email === undefined){
-    //     inputEl.value = '';  
-    //     } if (userStorage.message === undefined) {
-    //         textareaEl.value = '';
-    // }
     } 
     } catch (error) {
         console.error(error);
