@@ -12,16 +12,16 @@ const STORAGE_KEY = 'feedback-form-state';
 
 populateForm();
 
-form.addEventListener('submit', onFormSubmit);
+
 form.addEventListener('input', throttle(e => {
     userStorage[e.target.name] = e.target.value;
-    onInputFormValue();
+    onFormInput();
 }, 500)
 );
 
 let userStorage = {};
 
-function onInputFormValue(e) {
+function onFormInput(e) {
     e.preventDefault();
     
     const name = e.target;
@@ -42,11 +42,8 @@ function onFormSubmit(e) {
     e.preventDefault();
     console.log(userStorage);
     e.currentTarget.reset();
-    // const savedData = localStorage.getItem(STORAGE_KEY);
-    // const parsedSavedData = JSON.parse(savedData);
-    // console.log("email:", parsedSavedData.email);
-    // console.log("message", parsedSavedData.message);
     localStorage.removeItem(STORAGE_KEY);
+    Object.keys(userStorage).forEach(ei => delete userStorage[el]);
 }
 
 function populateForm() {
