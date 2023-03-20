@@ -6,8 +6,8 @@ const STORAGE_KEY = 'feedback-form-state';
 // const inputEl = document.querySelector('[name ="email"]');
 
 // const textareaEl = document.querySelector('[name ="message"]');
-inputEl.setAttribute('id', 'email');
-textareaEl.setAttribute('id', 'message');
+// inputEl.setAttribute('id', 'email');
+// textareaEl.setAttribute('id', 'message');
 
 populateForm();
 
