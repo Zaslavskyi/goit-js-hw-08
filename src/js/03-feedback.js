@@ -21,7 +21,7 @@ form.addEventListener('input', throttle(e => {
 
 let userStorage = {};
 
-function onFormInput(e) {
+function onInputFormValue(e) {
     e.preventDefault();
     
     const name = e.target;
