@@ -5,7 +5,7 @@ const STORAGE_KEY = 'feedback-form-state';
 let userStorage = {};
 populateForm();
 
-
+form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input', throttle(e => {
     userStorage[e.target.name] = e.target.value;
     onFormInput();
